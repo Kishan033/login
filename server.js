@@ -44,6 +44,7 @@ app.get('/zendesk/auth', function (req, res) {
     //     timestamp: '1670741157'
     // }
 
+    console.log("🚀 ~ file: server.js:52 ~ process.env.HELP_DESK_SECRET", process.env.HELP_DESK_SECRET)
     const token = JWT.sign({
         "name": "Kishan",
         "email": "kishandobariya03@gmail.com",
