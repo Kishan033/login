@@ -35,6 +35,8 @@ var jwtOptions = {
 //     return res.redirect(`https://kishandobariya03.myfreshworks.com/sp/OIDC/518721214559527022/implicit?state=${req.query.state}&token=${token}`);
 // });
 
+console.log(process.env)
+
 app.get('/zendesk/auth',function(req,res){
     console.log(req.query);
     return res.send("OKK");
