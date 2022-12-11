@@ -3,6 +3,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var JWT = require('jsonwebtoken');
 var app = express();
+const crypto = require("crypto");
 
 app.use(bodyParser.json());
 
@@ -48,6 +49,7 @@ app.get('/zendesk/auth', function (req, res) {
     const token = JWT.sign({
         "name": "Kishan",
         "email": "kishandobariya03@gmail.com",
+        "jti": crypto.randomBytes(16).toString("hex"),
         "iat": parseInt(((+(new Date())) / 1000).toString()),
     }, process.env.HELP_DESK_SECRET, jwtOptions);
     console.log("🚀 ~ file: server.js:28 ~ app.get ~ token", token);
