@@ -43,7 +43,20 @@ app.get('/zendesk/auth', function (req, res) {
     //     return_to: 'https://boomio.zendesk.com',
     //     timestamp: '1670741157'
     // }
-    return res.send("OKK");
+
+    const token = JWT.sign({
+        "name": "Kishan",
+        "email": "kishandobariya03@gmail.com",
+        "iat": parseInt(((+(new Date())) / 1000).toString()),
+    }, process.env.HELP_DESK_SECRET, jwtOptions);
+    console.log("🚀 ~ file: server.js:28 ~ app.get ~ token", token);
+
+    // var verifyResult = JWT.verify(token, publicKey, jwtOptions);
+    // console.log("Verification has passed : " + JSON.stringify(verifyResult));
+    const aa = `https://boomio.zendesk.com/access/jwt?jwt=${token}`;
+
+    console.log("🚀 ~ file: server.js:52 ~ aa", aa)
+    return res.redirect(`https://boomio.zendesk.com/access/jwt?jwt=${token}&return_to=${req.query.return_to}`);
 });
 
 app.listen(process.env.PORT, function () {
