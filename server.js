@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 
 var jwtOptions = {
     expiresIn: '5h',
-    algorithm: "RS256"
+    // algorithm: "RS256"
 };
 
 // app.get('/auth',function(req,res){
