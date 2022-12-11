@@ -51,7 +51,7 @@ app.get('/zendesk/auth', function (req, res) {
         "email": "kishandobariya03@gmail.com",
         "jti": crypto.randomBytes(16).toString("hex"),
         "iat": parseInt(((+(new Date())) / 1000).toString()),
-    }, process.env.HELP_DESK_SECRET, jwtOptions);
+    }, "mg8h1Bj1G8kDLgKYMd4pOkotvrk0LMp0hbThaopcYD9P78vm", jwtOptions);
     console.log("🚀 ~ file: server.js:28 ~ app.get ~ token", token);
 
     // var verifyResult = JWT.verify(token, publicKey, jwtOptions);
@@ -59,9 +59,9 @@ app.get('/zendesk/auth', function (req, res) {
     const aa = `https://boomio.zendesk.com/access/jwt?jwt=${token}`;
 
     console.log("🚀 ~ file: server.js:52 ~ aa", aa)
-    return res.redirect(`https://boomio.zendesk.com/access/jwt?jwt=${token}&return_to=${req.query.return_to}`);
+    return res.redirect(`https://boomio.zendesk.com/access/jwt?jwt=${token}`);
 });
 
-app.listen(process.env.PORT, function () {
+app.listen(process.env.PORT || 4001, function () {
     console.log("Working on port 4001");
 });
