@@ -37,8 +37,14 @@ var jwtOptions = {
 
 console.log(process.env)
 
-app.get('/zendesk/auth',function(req,res){
+app.get('/zendesk/auth', function (req, res) {
     console.log(req.query);
+    // {
+    //     brand_id: '11159328735505',
+    //     locale_id: '1',
+    //     return_to: 'https://boomio.zendesk.com',
+    //     timestamp: '1670741157'
+    // }
     return res.send("OKK");
 
     // const token = JWT.sign({
@@ -59,6 +65,6 @@ app.get('/zendesk/auth',function(req,res){
     // return res.redirect(`https://kishandobariya03.myfreshworks.com/sp/OIDC/518721214559527022/implicit?state=${req.query.state}&token=${token}`);
 });
 
-app.listen(4001,function(){
+app.listen(4001, function () {
     console.log("Working on port 4001");
 });
